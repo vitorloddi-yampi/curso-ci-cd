@@ -1,4 +1,4 @@
-name: Backend CI
+name: Frontend CI
 
 on:
   push:
@@ -9,13 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # @link https://github.com/actions/checkout
-      - name: Checkout do código
+      - name: Frontend React
         uses: actions/checkout@v3
-
-      # Para aplicações com Node, veja:
-      # https://github.com/actions/setup-node
-      - name: Build da aplicação
-        run: npx create-react-app .
 
       - name: Teste da aplicação
         run: npm install
@@ -23,5 +18,5 @@ jobs:
       - name: Rodando Build
         run: npm run build
 
-
-
+      - name: Executando Teste
+        run: npm test
