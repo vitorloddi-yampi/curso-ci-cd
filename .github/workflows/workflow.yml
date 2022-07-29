@@ -1,0 +1,27 @@
+name: Backend CI
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # @link https://github.com/actions/checkout
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      # Para aplicações com Node, veja:
+      # https://github.com/actions/setup-node
+      - name: Build da aplicação
+        run: npx create-react-app .
+
+      - name: Teste da aplicação
+        run: npm install
+
+      - name: Rodando Build
+        run: npm run build
+
+
+
